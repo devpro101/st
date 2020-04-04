@@ -216,15 +216,18 @@ static MouseShortcut mshortcuts[] = {
 //	{ XK_NO_MOD,            Button5, ttysend,        {.s = "\005"} },
 };
 
+/* Internal keyboard shortcuts. */
+#define MODKEY Mod1Mask                     // ALT
+#define TERMMOD (ControlMask|ShiftMask)     // CTRL+SHIFT
+#define ALTSHIFTMOD (Mod1Mask|ShiftMask)       // ALT+SHIFT
+
 MouseKey mkeys[] = {
 	/* button               mask            function        argument */
-	{ Button4,              Mod1Mask,       kscrollup,      {.i =  1} },
-	{ Button5,              Mod1Mask,       kscrolldown,    {.i =  1} },
+	{ Button4,              MODKEY,         kscrollup,      {.i =  1} },
+	{ Button5,              MODKEY,         kscrolldown,    {.i =  1} },
+    { Button4,              ALTSHIFTMOD,    zoom,           {.f = +1} },
+    { Button5,              ALTSHIFTMOD,    zoom,           {.f = -1} },
 };
-
-/* Internal keyboard shortcuts. */
-#define MODKEY Mod1Mask
-#define TERMMOD (ControlMask|ShiftMask)
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -234,7 +237,11 @@ static Shortcut shortcuts[] = {
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
+    { ALTSHIFTMOD,          XK_K,           zoom,           {.f = +1} },
+	{ ALTSHIFTMOD,          XK_J,           zoom,           {.f = -1} },
+	{ ALTSHIFTMOD,          XK_U,           zoom,           {.f = +5} },
+	{ ALTSHIFTMOD,          XK_D,           zoom,           {.f = -5} },
+	{ ALTSHIFTMOD,          XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
