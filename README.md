@@ -5,6 +5,7 @@ This is my own build of the [suckless terminal](https://st.suckless.org/).
 ## Pacthes included in this build
 
 * alpha
+* externalpipe
 * font2
 * scrollback
 * vertcenter
@@ -25,6 +26,9 @@ This is my own build of the [suckless terminal](https://st.suckless.org/).
 **Misc**
 * `Ctrl-Shift-c` : copy
 * `Ctrl-Shift-v` : paste
+* `Alt-l` : select and open any url on display _(requirements: dmenu and a script from my dotfile...)_
+* `Alt-y` : select and copy any url on display _(requirements: dmenu and a script from my dotfile...)_
+* `Alt-e` : opens the screen in an editor specified in the $EDITOR environment variable.
 
 ## Requirements
 
