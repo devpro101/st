@@ -230,6 +230,30 @@ MouseKey mkeys[] = {
     { Button5,              ALTSHIFTMOD,    zoom,           {.f = -1} },
 };
 
+static char *openurlcmd[] = {
+    "/bin/sh",
+    "-c",
+    "openurl",
+    "externalpipe",
+    NULL
+};
+
+static char *copyurlcmd[] = {
+    "/bin/sh",
+    "-c",
+    "copyurl",
+    "externalpipe",
+    NULL
+};
+
+static char *editscreencmd[] = {
+    "/bin/sh",
+    "-c",
+    "editscreen",
+    "externalpipe",
+    NULL
+};
+
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
 	{ XK_ANY_MOD,           XK_Break,       sendbreak,      {.i =  0} },
@@ -254,6 +278,9 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+    { MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
+    { MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
+    { MODKEY,               XK_e,           externalpipe,   {.v = editscreencmd } },
 };
 
 /*
