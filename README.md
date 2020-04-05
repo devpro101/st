@@ -1,34 +1,38 @@
-st - simple terminal
---------------------
-st is a simple terminal emulator for X which sucks less.
+# Chad's Suckless Terminal (st)
 
+This is my own build of the [suckless terminal](https://st.suckless.org/).
 
-Requirements
-------------
-In order to build st you need the Xlib header files.
+## Pacthes included in this build
 
+* alpha
+* font2
+* scrollback
+* vertcenter
+* xresources
 
-Installation
-------------
-Edit config.mk to match your local setup (st is installed into
-the /usr/local namespace by default).
+## Key Bindings
 
-Afterwards enter the following command to build and install st (if
-necessary as root):
+**Scrollback**
+* `Alt-k` and `Alt-j`
+* `Alt-u` and `Alt-d` : fast scrolling
+* `Shift-PageUp` and `Shift-PageDown` : fast scrolling _(comes default with scrollback patch)_
 
-    make clean install
+**Zooming**
+* `Ctrl-Shift-k` and `Ctrl-Shift-j`
+* `Ctrl-Shift-u` and `Ctrl-Shift-d` : zoom faster
+* `Ctrl-Shift-Home` : reset zoom
 
+**Misc**
+* `Ctrl-Shift-c` : copy
+* `Ctrl-Shift-v` : paste
 
-Running st
-----------
-If you did not install st with make clean install, you must compile
-the st terminfo entry with the following command:
+## Requirements
 
-    tic -sx st.info
+* Composite Manager for transparancy (e.g. xcompmgr or compton)
+* In order to build st you need the Xlib header files.
+* libxft-bgra : if st crashes when trying to view some emojis or other unicode characters
 
-See the man page for additional details.
-
-Credits
--------
-Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
-
+## Installation
+    git clone https://github.com/devpro101/st.git
+    cd st
+    sudo make clean install
